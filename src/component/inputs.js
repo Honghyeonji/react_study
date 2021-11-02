@@ -13,6 +13,7 @@ export function Inputs(question_nubmer, e){
                 v = {questions[question_nubmer].answer_value[i]}
                 e = {e}/>)
         }
+        return result;
     }
     return(
         <div>

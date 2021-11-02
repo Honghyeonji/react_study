@@ -2,6 +2,24 @@ import React, { Component } from 'react';
 import { questions } from "./questions";
 import { Inputs } from "./inputs"
 
+
+function Test(e) {
+  let len = questions.length;
+  const rendering = () => {
+    const result =[];
+    for(let i = 0; i<len; i++){
+      result.push(<Inputs question_nubmer ={i} e = {e}/>)
+    }
+    return result;
+  }
+  return(
+    <div>
+      {rendering()}
+      <br/>
+    </div>
+  )
+}
+
 class PersonalityTest extends Component {
   state = {
     Count: 0
@@ -22,6 +40,12 @@ class PersonalityTest extends Component {
 //         })
 //     }
 //   }
+
+  handlerCount = () => {
+    this.setState({
+      Count:this.state.Count + 1
+    })
+  }
 
   handleCount_2 = () => {
     this.setState({
@@ -47,7 +71,7 @@ class PersonalityTest extends Component {
   render() {
     return (
       <div>
-        <Inputs question_nubmer = {1} e={this.handleCount} />
+        <Test e= {this.handlerCount}/>
 
         {/* <div>
             <div>
