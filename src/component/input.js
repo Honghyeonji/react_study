@@ -4,7 +4,7 @@ export function InputQ(a, q, v, e){
     return(
         <div>
             <input
-                name = {q}
+                name = {String(q)}
                 type = "radio"
                 value = {v}
                 onChange = {e}

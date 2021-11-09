@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import PersonalityTest from './personalityTest'
+import PersonalityTest from './component/personalityTest'
 import TestName from './testName'
 
 class App extends Component {
