@@ -1,14 +1,15 @@
 import React from "react";
 
-export function InputQ(a, q, v, e){
+export function InputQ({a, q, v, e}){
     return(
         <div>
             <input
-                name = {String(q)}
+                name = {q}
                 type = "radio"
                 value = {v}
-                onChange = {e}
-            >{a}</input>
+                onChange = {e}>
+                {a}
+            </input>
             <br/>
         </div>
     )
