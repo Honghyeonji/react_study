@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import PersonalityTest from './component/personalityTest'
+import { Result } from './component/result';
 import TestName from './testName'
 
 export default function App() {

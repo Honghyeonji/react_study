@@ -1,21 +1,16 @@
 import React, { Component } from 'react';
 import { questions } from "./questions";
 import { Inputs } from "./inputs"
-import { results } from "./results"
 
 
 function Test(e) {
-  let len = questions.length;
-  const rendering = () => {
-    const result =[];
-    for(let i = 0; i<len; i++){
-      result.push(<Inputs question_nubmer ={i} e = {e}/>)
-    }
-    return result;
-  }
   return(
     <div>
-      {rendering()}
+      {questions && questions.map((ques, index) => (
+        <div key = {index}>
+          <Inputs ques = {ques} e = {e} q_n = {index}/>
+        </div>
+      ))}
       <br/>
     </div>
   )
@@ -29,7 +24,7 @@ class PersonalityTest extends Component {
   }
   //input의 name은 문제의 번호, value는 선택버튼의 값으로 클릭하면 state test list에 저장됨
   updateEvent = (e) => {
-    this.state.test[parseInt(e.target.name)] = parseInt(e.target.value);
+    this.state.test[e.target.name] = parseInt(e.target.value);
   }
 
   resultEvent = () => {
@@ -51,35 +46,15 @@ class PersonalityTest extends Component {
       this.state.resultType = 6
     }
   }
+
+
   
-  resultScore = () => {
-    if(this.state.resultType == 0){
-      return(<div></div>)
-    }else{
-      return(
-        <div>{results[this.state.resultType-1].score}</div>
-      )
-    }
-  }
-
-  resultSep = () => {
-    if(this.state.resultType == 0){
-      return(<div></div>)
-    }else{
-      return(<div>{results[this.state.resultType-1].result}</div>)
-    }
-  }
-
 
   render() {
     return (
       <div>
         <Test e= {this.updateEvent}/>
         <button onClick = {this.resultEvent}>결과 확인</button>
-        <div>
-          {this.resultScore}
-          {this.resultSep}
-        </div>
 
         {/* <div>
             <div>

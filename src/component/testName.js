@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class TestName extends Component {
+export class TestName extends Component {
   render() {
     return (
       <div>
@@ -13,5 +13,3 @@ class TestName extends Component {
 TestName.defaultProps = {
   name: '기본이름'
 };
-
-export default TestName;
