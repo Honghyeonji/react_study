@@ -1,53 +1,85 @@
 import React, { Component } from 'react';
 import { questions } from "./questions";
 import { Inputs } from "./inputs"
+import { results } from "./results"
+
+
+function Test(e) {
+  let len = questions.length;
+  const rendering = () => {
+    const result =[];
+    for(let i = 0; i<len; i++){
+      result.push(<Inputs question_nubmer ={i} e = {e}/>)
+    }
+    return result;
+  }
+  return(
+    <div>
+      {rendering()}
+      <br/>
+    </div>
+  )
+}
 
 class PersonalityTest extends Component {
   state = {
-    Count: 0
+    test : [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    resultScore : 0,
+    resultType : 0
+  }
+  //input의 name은 문제의 번호, value는 선택버튼의 값으로 클릭하면 state test list에 저장됨
+  updateEvent = (e) => {
+    this.state.test[parseInt(e.target.name)] = parseInt(e.target.value);
   }
 
-//   handleCount = () => {
-//     if (this.className === "score_2") {
-//         this.setState({
-//             Count : this.state.Count + 2
-//         })
-//     }else if (this.className === "score_4") {
-//         this.setState({
-//             Count : this.state.Count + 4
-//         })
-//     }else if (this.className === "score_6") {
-//         this.setState({
-//             Count : this.state.Count + 6
-//         })
-//     }
-//   }
+  resultEvent = () => {
+    for(let i = 0; i<this.state.test.length; i++){
+      this.state.resultScore += this.state.test[i];
+    }
 
-  handleCount_2 = () => {
-    this.setState({
-        Count : this.state.Count + 2
-    })
+    if(this.state.resultScore >= 60){
+      this.state.resultType = 1
+    }else if(51 <= this.state.resultScore && this.state.resultScore <= 59){
+      this.state.resultType = 2
+    }else if(41 <= this.state.resultScore && this.state.resultScore <= 49){
+      this.state.resultType = 3
+    }else if(31 <= this.state.resultScore && this.state.resultScore <= 39){
+      this.state.resultType = 4
+    }else if(21 <= this.state.resultScore && this.state.resultScore <= 29){
+      this.state.resultType = 5
+    }else{
+      this.state.resultType = 6
+    }
   }
-  handleCount_4 = () => {
-    this.setState({
-        Count : this.state.Count + 4
-    })
+  
+  resultScore = () => {
+    if(this.state.resultType == 0){
+      return(<div></div>)
+    }else{
+      return(
+        <div>{results[this.state.resultType-1].score}</div>
+      )
+    }
   }
-  handleCount_6 = () => {
-    this.setState({
-        Count : this.state.Count + 6
-    })
+
+  resultSep = () => {
+    if(this.state.resultType == 0){
+      return(<div></div>)
+    }else{
+      return(<div>{results[this.state.resultType-1].result}</div>)
+    }
   }
-  handleCount_7 = () => {
-    this.setState({
-        Count : this.state.Count + 7
-    })
-  }
+
 
   render() {
     return (
       <div>
-        <Inputs question_nubmer = {1} e={this.handleCount} />
+        <Test e= {this.updateEvent}/>
+        <button onClick = {this.resultEvent}>결과 확인</button>
+        <div>
+          {this.resultScore}
+          {this.resultSep}
+        </div>
 
         {/* <div>
             <div>
