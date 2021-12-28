@@ -2,7 +2,7 @@ import React from "react";
 import { InputQ } from "./input";
 import { questions } from "./questions";
 
-export function Inputs({ques, onUpdate, question_number}){
+export function Inputs({ques, onUpdate}){
     var len = 0;
     if(ques !== 'undefinded' && ques !== null){
         len = ques.answer.length;
@@ -22,7 +22,6 @@ export function Inputs({ques, onUpdate, question_number}){
     }
     return(
         <div>
-            <div>{question_number}</div>
             <span>{ques.question}</span>
             <div>
                 {result}

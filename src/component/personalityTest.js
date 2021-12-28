@@ -8,7 +8,7 @@ function Test(onUpdate) {
     <div>
       {questions && questions.map((ques, index) => (
         <div key = {index}>
-          <Inputs ques = {ques} onUpdate = {onUpdate} question_number = {index}/>
+          <Inputs ques = {ques} onUpdate = {onUpdate} />
         </div>
       ))}
       <br/>
@@ -16,13 +16,28 @@ function Test(onUpdate) {
   )
 }
 
+function Result_score({result}){
+  if(result === -1){
+    return(
+      <div></div>
+    )
+  }else{
+    return(
+      <span>score: {result}</span>
+    )
+  }
+}
+
 const PersonalityTest = ({
+  result,
   onUpdate,
   onResult
 }) => {
   return(
     <div>
       <Test e = {onUpdate} />
+      <button onClick={onResult}>결과 확인</button>
+      <Result_score result = {result}/>
     </div>
   )
 }

@@ -8,7 +8,7 @@ export const result = createAction(RESULT);
 
 // 일단 테스트용으로 심리테스트 하나만 사용
 const initialSate = {
-    result: 0,
+    result_score: -1,
     inputs: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 };
 
@@ -17,6 +17,10 @@ export default handleActions({
         return { inputs: [...state.inputs.slice(0, action.index), parseInt(action.value), ...state.inputs.slice(action.index+1, 11)]}
     },
     [RESULT] : (state) => {
-        return { result: state.inputs(function add(sum, currValue) {return sum + currValue; }, 0)};
+        let n = 0;
+        for(let i = 0; i < 11; i++){
+            n += state.inputs[i];
+        }
+        return { result_score: n};
     }
 }, initialSate);
