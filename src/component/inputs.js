@@ -2,7 +2,7 @@ import React from "react";
 import { InputQ } from "./input";
 import { questions } from "./questions";
 
-export function Inputs({ques, e, q_n}){
+export function Inputs({ques, onUpdate, question_number}){
     var len = 0;
     if(ques !== 'undefinded' && ques !== null){
         len = ques.answer.length;
@@ -15,13 +15,14 @@ export function Inputs({ques, e, q_n}){
 
     for(let i = 0; i<len; i++){
         result.concat(<InputQ 
-            a = {ques.answer[i]}
-            q = {q_n}
-            v = {ques.answer_value[i]}
-            e = {e}/>)
+            answer = {ques.answer[i]}
+            answer_number = {i}
+            value = {ques.answer_value[i]}
+            onUpdate = {onUpdate}/>)
     }
     return(
         <div>
+            <div>{question_number}</div>
             <span>{ques.question}</span>
             <div>
                 {result}
