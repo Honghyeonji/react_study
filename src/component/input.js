@@ -1,14 +1,14 @@
 import React from "react";
 
-export function InputQ({a, q, v, e}){
+export function InputQ({answer, answer_number, value, onUpdate}){
     return(
         <div>
             <input
-                name = {q}
+                name = {answer_number}
                 type = "radio"
-                value = {v}
-                onChange = {e}>
-                {a}
+                value = {value}
+                onChange = {onUpdate(answer_number, value)}>
+                {answer}
             </input>
             <br/>
         </div>
