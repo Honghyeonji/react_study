@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import store from './store';
 
 import App from './component/App';
-import TestName from 'testName';
+import TestName from './testName';
 
 const Root = () => {
     return(
