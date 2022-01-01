@@ -1,33 +1,61 @@
 import React, { Component } from 'react';
 import { questions } from "./questions";
-// import { Inputs } from "./inputs"
-import answerList from './answerList';
-import { render } from '@testing-library/react';
+import { Inputs } from "./inputs"
 
-export default function personalityTest(props) {
-    const questionList = questions.map((ques) => (
+
+function Test(onUpdate) {
+  return(
     <div>
-        <h1>{ques.question}</h1>
-        {answerList(ques)}
-    </div>));
-    return (
-        <div>
-            {questionList}
+      {questions && questions.map((ques, index) => (
+        <div key = {index}>
+          <Inputs ques = {ques} onUpdate = {onUpdate} />
         </div>
-    );
+      ))}
+      <br/>
+    </div>
+  )
 }
 
-// function Test(e) {
-//   return(
+function Result_score({result}){
+  if(result === -1){
+    return(
+      <div></div>
+    )
+  }else{
+    return(
+      <span>score: {result}</span>
+    )
+  }
+}
+
+const PersonalityTest = ({
+  result,
+  onUpdate,
+  onResult
+}) => {
+  return(
+    <div>
+      <Test e = {onUpdate} />
+      <button onClick={onResult}>결과 확인</button>
+      <Result_score result = {result}/>
+    </div>
+  )
+}
+
+// import answerList from './answerList';
+// import { render } from '@testing-library/react';
+
+// export default function personalityTest(props) {
+//     const questionList = questions.map((ques) => (
 //     <div>
-//       {questions && questions.map((ques, index) => (
-//         <div key = {index}>
-//           <Inputs ques = {ques} e = {e} q_n = {index}/>
+//         <h1>{ques.question}</h1>
+//         {answerList(ques)}
+//     </div>));
+//     return (
+//         <div>
+//             {questionList}
 //         </div>
-//       ))}
-//       <br/>
-//     </div>
-//   )
+//     );
 // }
 
 // class PersonalityTest extends Component {
@@ -136,4 +164,4 @@ export default function personalityTest(props) {
 //   }
 // }
 
-// export default PersonalityTest;
+export default PersonalityTest;
