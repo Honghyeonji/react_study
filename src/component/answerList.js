@@ -1,22 +1,11 @@
 import React from "react";
-// import { TestActions } from "../store/actionCreators";
+import { Answer } from "./Answer";
 
-export default function answerList(props) {
-    const questionAnswer = props && props.answer.map((a, index) => (
+export function AnswerList({ques}){
+    return(
         <div>
-            <input 
-            name = {props.id}
-            value= {props.answer_value[index]}
-            type = "radio" 
-            // onChange = {TestActions.update(props.id, props.answer_value[index])}
-            // onChange = {onUpdate(props.id, props.answer_value[index])}
-            />
-            {a}
+            <span>{ques.question}</span>
+            <Answer props = {ques}/>
         </div>
-    ));
-    return (
-        <div>
-            {questionAnswer}
-        </div>
-    );
+    )
 }

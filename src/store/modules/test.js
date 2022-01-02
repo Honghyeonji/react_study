@@ -19,7 +19,9 @@ const initialSate = {
 // 액션 타입에 따른 함수의 동작
 export default handleActions({
     [UPDATE] : (state, action) => {
-        return { inputs: [...state.inputs.slice(0, action.index), parseInt(action.value), ...state.inputs.slice(action.index+1, 11)]}
+        return {
+            inputs: [...state.inputs.slice(0, action.index), parseInt(action.value), ...state.inputs.slice(action.index+1, 11)]
+        }
     },
     [RESULT] : (state) => {
         let n = 0;
