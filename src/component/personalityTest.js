@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { AnswerList } from './AnswerList';
 import { result } from '../store/modules/test';
 
-
 function Test() {
     return(
         <div>

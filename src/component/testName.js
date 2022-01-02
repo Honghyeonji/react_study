@@ -8,7 +8,7 @@ export class TestName extends Component {
       </div>
     );
   }
-}
+} 
 
 TestName.defaultProps = {
   name: '기본이름'
