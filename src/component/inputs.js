@@ -12,7 +12,6 @@ export function Inputs({ques, onUpdate}){
     // const answers = ques && ques.answer.map((a) => a)
     // const answer_values = ques && ques.answer_value.map((v) => v)
     // const len = answers.length;
-    const result = [213];
 
     // for(let i = 0; i<len; i++){
     //     // result.concat(<InputQ 
@@ -22,11 +21,12 @@ export function Inputs({ques, onUpdate}){
     //     //     onUpdate = {onUpdate}/>)
     //     result.concat(InputQ[0])
     // }
+    
     return(
         <div>
             <span>{ques.question}</span>
             {/* {result} */}
-            {answerList(ques, onUpdate)}
+            {answerList(ques)}
         </div>
     )
 }
