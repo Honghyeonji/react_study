@@ -2,10 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Root from './Root';
+import MainPage from './pages/mainPage';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-  <Root />,
+  <MainPage/>,
+  // <Root />,
   document.getElementById('root')
 );
 
