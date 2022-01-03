@@ -7,7 +7,7 @@ export function Answer({props}) {
     const v = useSelector(state => state.test.inputs)
     const changeEvent = (e) => {
         const {name, value} = e.target;
-        dispatch(update(name, value));
+        dispatch(update({name, value}));
         console.log(v);
         console.log(name);
         console.log(value);
