@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import PersonalityTest from "./personalityTest";
-import { results } from "./Results"
+import PersonalityTest from "./PersonalityTest";
+import { results } from "./results"
 
 export class Result extends PersonalityTest{
     constructor(){
