@@ -27,6 +27,6 @@ const TestImg = styled.div`
     background-color: #c4c4c4;
 `
 
-const TestName = styled.h1`
+const TestName = styled.h2`
     margin : 0;
 `

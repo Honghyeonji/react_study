@@ -6,10 +6,14 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import store from './store';
 import App from './App';
+import KakaoShareButton from './component/KakaoShareButton';
+
+window.Kakao.init('d56ee84445bc9916bb1446899f2cfb45')
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store = {store}>
+      {console.log(window.Kakao.isInitialized())}
       <App />
     </Provider>
   </React.StrictMode>,
