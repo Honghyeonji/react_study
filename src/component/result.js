@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import PersonalityTest from "./personalityTest";
+import PersonalityTest from "./PersonalityTest";
 import { results } from "./results"
 
 export class Result extends PersonalityTest{

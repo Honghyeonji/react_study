@@ -1,12 +1,13 @@
 // 모듈의 내용을 저장하는 파일입니다.
 
 import { createAction, handleActions } from "redux-actions";
+import createActions from "redux-actions/lib/createActions";
 
 const UPDATE = 'test/UPDATE';
 const RESULT = 'test/RESULT';
 
 // 함수의 액션 타입을 지정합니다.
-export const update = createAction(UPDATE, index=>index, value=>value);
+export const update = createAction(UPDATE);
 export const result = createAction(RESULT);
 
 // 일단 테스트용으로 심리테스트 하나만 사용
@@ -19,7 +20,13 @@ const initialSate = {
 // 액션 타입에 따른 함수의 동작
 export default handleActions({
     [UPDATE] : (state, action) => {
-        return { inputs: [...state.inputs.slice(0, action.index), parseInt(action.value), ...state.inputs.slice(action.index+1, 11)]}
+        console.log(state);
+        console.log("index:", action.payload.name);
+        state.inputs[action.payload.name] = parseInt(action.payload.value)
+        return {
+            ...state,
+            inputs: state.inputs
+        }
     },
     [RESULT] : (state) => {
         let n = 0;
