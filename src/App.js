@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import MainPage from "./pages/MainPage";
+import MainPage from "./pages/mainPage2";
 import Test from "./pages/Test";
 
 function App(){
@@ -8,8 +8,8 @@ function App(){
         <div>
             <BrowserRouter>
                 <Switch>
-                    <Route exact path='/' component={Test} />
-                    <Route path = '/main' component = {MainPage}/>
+                    <Route path='/test' component={Test} />
+                    <Route exact path = '/' component = {MainPage}/>
                 </Switch>
             </BrowserRouter>
         </div>

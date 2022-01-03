@@ -1,16 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-export default function TestList(props) {
+export default function TestList({props}) {
     const img = props.img ? true : null;
 
     return (
-        <Test>
-            <TestImg>
+        <Link to={props.route} style={{textDecoration:'none', color:'inherit'}}>
+            <Test>
+                <TestImg>
 
-            </TestImg>
-            <TestName>{props.testName}</TestName>
-        </Test>
+                </TestImg>
+                <TestName>{props.testName}</TestName>
+            </Test>
+        </Link>
     )
 }
 

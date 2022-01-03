@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Test from './Test';
 
-export default function TestList(props) {
+export default function TestList({props}) {
     return (
         <Tests>
             <Test props = {props[0]}/>

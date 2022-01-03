@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export default function Header(props) {
@@ -6,9 +7,11 @@ export default function Header(props) {
     return(
         <Box>
             <HeaderInner>
-                <Logo>
-                    홍홍테스트
-                </Logo>
+                <Link to = "/" style={{textDecoration:'none', color:'inherit'}}>
+                    <Logo>
+                        홍홍테스트
+                    </Logo>
+                </Link>
                 <Button>
                     로그인
                 </Button>

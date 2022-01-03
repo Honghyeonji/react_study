@@ -3,19 +3,23 @@ export const recommendTest = {
     list : [
         {
             img : null,
-            testName : "추천 테스트 1"
+            testName : "추천 테스트 1",
+            route : "/test"
         },
         {
             img : null,
-            testName : "추천 테스트 2"
+            testName : "추천 테스트 2",
+            route : "/"
         },
         {
             img : null,
-            testName : "추천 테스트 3"
+            testName : "추천 테스트 3",
+            route : "/"
         },
         {
             img : null,
-            testName : "추천 테스트 4"
+            testName : "추천 테스트 4",
+            route : "/"
         },
     ]
 }
@@ -25,19 +29,23 @@ export const hotTest = {
     list : [
         {
             img : null,
-            testName : "인기 테스트 1"
+            testName : "인기 테스트 1",
+            route : "/"
         },
         {
             img : null,
-            testName : "인기 테스트 2"
+            testName : "인기 테스트 2",
+            route : "/"
         },
         {
             img : null,
-            testName : "인기 테스트 3"
+            testName : "인기 테스트 3",
+            route : "/"
         },
         {
             img : null,
-            testName : "인기 테스트 4"
+            testName : "인기 테스트 4",
+            route : "/"
         },
     ]
 }
