@@ -3,8 +3,9 @@ import { useEffect } from "react";
 import styled from "styled-components";
 import kakaoLogo from "../../assets/images/kakao.png";
 
-const SocialButtonGroup = () => {
-    const currentUrl = window.location.href;
+const SocialButtonGroup = ({link}) => {
+    const sendUrl = window.location.href + link;
+    console.log(sendUrl);
     const status = useScript("https://developers.kakao.com/sdk/js/kakao.js");
 
     useEffect(() => {
@@ -19,7 +20,7 @@ const SocialButtonGroup = () => {
 
     const handleKakaoButton = () => {
         window.Kakao.Link.sendScrap({
-            requestUrl: currentUrl,
+            requestUrl: sendUrl,
         });
     };
     
@@ -38,8 +39,9 @@ export default SocialButtonGroup;
 
 const GridContainer = styled.div`
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    margin-left: 20px;
 `;
 
 const KakaoShareButton = styled.a`
@@ -47,7 +49,7 @@ const KakaoShareButton = styled.a`
 `;
 
 const KakaoIcon = styled.img`
-	width: 48px;
-	height: 48px;
+	width: 32px;
+	height: 32px;
 	border-radius: 24px;
 `;
