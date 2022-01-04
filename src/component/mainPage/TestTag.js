@@ -3,7 +3,7 @@ export const recommendTest = {
     list : [
         {
             img : null,
-            testName : "추천 테스트 1",
+            testName : "사람들은 당신을 어떻게 생각할까?",
             route : "test"
         },
         {

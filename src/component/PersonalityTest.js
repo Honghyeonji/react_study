@@ -3,6 +3,7 @@ import { questions } from "./questions";
 import { useSelector, useDispatch } from 'react-redux';
 import { AnswerList } from './AnswerList';
 import { result } from '../store/modules/test';
+import { results } from './results';
 
 function Test() {
     return(
@@ -19,13 +20,31 @@ function Test() {
 
 function Result_score(){
     const result = useSelector(state => state.test.result_score);
+    let resultText = "";
+    if ( result >= 60) {
+        resultText = results[0].result
+    }else if (result > 51) {
+        resultText = results[1].result
+    }else if (result > 41) {
+        resultText = results[2].result
+    }else if (result > 31) {
+        resultText = results[3].result
+    }else if (result > 21) {
+        resultText = results[4].result
+    }else {
+        resultText = results[5].result
+    }
     if(result === -1){
         return(
         <div></div>
         )
     }else{
         return(
-        <span>score: {result}</span>
+            <div>
+                <span>score: {result}</span>
+                <div> {resultText} </div>
+            </div>
+        
         )
     }
 }
